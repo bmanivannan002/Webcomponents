@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+
+<body>
+<comment-form>
+<h3>Comment forum</h3>
+<p class="footer">This is footer</p>
+
+</comment-form>
+
+    <template>
+        <fieldset>
+            <legend>
+                <content select="h3"></content>
+            </legend>
+            <content select="h1"></content>
+            <textarea rows="10" cols="100"></textarea>
+            <button type="button">Submit</button>
+            <content select="p.footer"></content>
+        </fieldset>
+
+    </template>
+    <script>
+    var template = document.querySelector('template');
+    var clone = document.importNode(template.content, true);
+
+    var customelement = Object.create(HTMLElement.prototype);
+    customelement.createdCallback = function()
+    {
+        var shadow = this.createShadowRoot();
+        shadow.appendChild(clone);
+
+    }
+    var customControl = document.registerElement('comment-form', {
+        prototype: customelement
+    })
+    </script>
+
+</body>
+
+</html>

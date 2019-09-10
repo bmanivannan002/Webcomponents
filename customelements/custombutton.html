@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    
+
+    <button  is="link-button"></button>
+   
+    <script>
+      var linkbuttonproto = Object.create(HTMLButtonElement.prototype);
+      linkbuttonproto.createdCallback = function()
+      {
+          this.innerHTML="link button";
+          this.value = "Default value";
+          this.style.color = "blue";
+          
+      };
+
+      var control = document.registerElement('link-button', {
+          prototype : linkbuttonproto,
+          extends: 'button'
+      });
+
+      //document.body.appendChild(new control());
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>Shopping Cart</h1>
+    <template>
+        <p> Number of <span class='item'></span> added to the <span class='basket'></span> </p>
+
+    </template>
+    <input type='button' value='Add items' onclick="additem()" />
+    <script>
+        var cnt = 0;
+       
+        function additem() {
+            var template = document.querySelector('template');
+            var clone = document.importNode(template.content, true);
+            clone.querySelector('.item').textContent = ++cnt;
+            clone.querySelector('.basket').textContent = 'fruit basket';
+            document.body.appendChild(clone);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+        <style>
+                table{
+                    background-color: yellow;
+                    border: 1px solid green;
+                }
+                
+                </style>
+    <body>
+<template>
+<style>
+table{
+    background-color: aqua;
+    border: 1px solid red;
+}
+
+</style>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Danush</td>
+    </tr>
+    <tr>
+            <td>4</td>
+            <td>Devi</td>
+        </tr>
+
+</table>
+
+</template>
+<table >
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Manivannan</td>
+        </tr>
+        <tr>
+                <td>2</td>
+                <td>Balakrishnan</td>
+            </tr>
+    
+    </table>
+    <script>
+    var template = document.querySelector('template');
+    var clone = document.importNode(template.content, true);
+    document.body.appendChild(clone);
+    </script>
+    </body>
+</html>

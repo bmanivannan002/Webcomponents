@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <template>
+        <p id="para1">This is template</p>
+        <span class='spn'>This is span</span>
+        
+    </template>
+    <script>
+        alert('Manivnanan');
+        var template = document.querySelector('template');
+        var clone = document.importNode(template.content, true);
+        console.log(clone.querySelector('.spn').textContent);
+        clone.querySelector('.spn').content.ld();//= 'Very good';
+        document.body.appendChild(clone);
+        console.log(template);
+    </script>
+</body>
+
+</html>

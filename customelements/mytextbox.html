@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <input type="text" is='my-text' />
+   <script>
+   var mytextboxproto = Object.create(HTMLInputElement.prototype);
+
+   mytextboxproto.createdCallback = function()
+   {
+        this.innerHTML="link button";
+       this.value ='Manivannan';
+       this.style.color ="red";
+   };
+   
+   mytextboxproto.attachedCallback = function()
+   {
+       console.log('attached' + new Date());
+   }
+   mytextboxproto.attributeChangedCallback = function(attrName, oldVal, newVal)
+   {
+       console.log('attributeChangedCallback' + new Date());
+   }
+
+   var mybox = document.registerElement('my-text', {
+       prototype: mytextboxproto,
+       extends: 'input'
+   });
+
+
+
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+
+
+     <!--<my-comment></my-comment> -->
+    <script>
+        var mycommentproto = Object.create(HTMLElement.prototype);
+
+        mycommentproto.createdCallback = function () {
+            this.innerHTML = "<h1>Welcome</h1><br />    Comment: <textarea> </textarea><br /> <input type='submit' value ='submit'/>";
+        }
+        var mycomment = document.registerElement('my-comment', {
+            prototype: mycommentproto
+
+        });
+
+       //Option2
+        //document.body.appendChild( new mycomment());
+
+        
+       //Option3
+        //document.body.appendChild( document.createElement('my-comment'));
+         //Option4
+        document.body.innerHTML= '<my-comment />';
+    </script>
+</body>
+
+</html>

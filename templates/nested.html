@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <template id="document">
+        <style>
+            .document {
+                height: 600px;
+                width: 600px;
+                background-color: aqua;
+                border: 1px solid red;
+                display: block;
+            }
+        </style>
+        <div class='document'> Document
+<input type="text" is="search" />
+
+        </div>
+        <template id="html">
+            <style>
+                .html {
+                    height: 400px;
+                    width: 400px;
+                    background-color: goldenrod;
+                border: 1px solid blue;
+                display: inline-block;
+                }
+            </style>
+            <div class='html'> Html</div>
+            <template id="header">
+                <div> Header</div>
+            </template>
+            <template id="body">
+                <style>
+                    div {
+                        display: block;
+                        height: 200px;
+                        width: 200px;
+                        background-color: aqua;
+                        border: 1px solid red;
+                    }
+                </style>
+                <div> Body</div>
+            </template>
+        </template>
+    </template>
+</head>
+
+<body>
+    <script>
+        var bodytemplate = document.querySelector('#document');
+        var bodyclone = document.importNode(bodytemplate.content, true);
+        document.body.appendChild(bodyclone);
+        var htmltemplate = document.querySelector('#html');
+        var htmlclone = document.importNode(htmltemplate.content, true);
+        document.body.appendChild(htmlclone);
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <script>
+  var mycommentproto = Object.create(HTMLElement.prototype);
+  mycommentproto.createdCallback = function()
+  {
+      this.innerHTML = '<h1> Welcome </h1>';
+  };
+
+  var mycomment = document.registerElement('my-comment', {
+      prototype: mycommentproto
+  });
+//document.body.appendChild( new mycomment());
+document.createElement('<my-comment />');
+  //document.body.innerHTML ='<my-comment />';
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Components - Custom Elements</title>
+
+</head>
+
+<body>
+    <button  is="my-button" ></button>
+   
+
+    <script>
+
+        var buttonproto = Object.create(HTMLButtonElement.prototype);
+        buttonproto.createdCallback = function()
+        {
+            this.innerHTML = "My button";
+            this.style.background ="yellow";
+            this.style.color = "red";
+        }
+        var buttoncontrol = document.registerElement('my-button', {
+            prototype: buttonproto,
+            extends: 'button'
+        });
+        document.body.appendChild( new buttoncontrol());
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web Components - Templates</title>
+
+</head>
+<body>
+    <button onclick="additem()">Clicke me</button>
+    <template>
+        <p>Template</p>
+
+
+    </template>
+    <template id="header">
+        <p style="background-color:aqua">Header</p>
+        <br />
+        <template id="body">
+            <p style="background-color:goldenrod">Body</p>
+        </template>
+    </template>
+    <script>
+        var template = document.querySelector('template');
+        var clone = document.importNode(template.content, true);
+        document.body.appendChild(clone);
+
+        var htemplate = document.querySelector('#header');
+        var hclone = document.importNode(htemplate.content, true);
+        document.body.appendChild(hclone);
+
+        var btemplate = document.querySelector('#body');
+        var bclone = document.importNode(btemplate.content, true);
+        document.body.appendChild(bclone);
+        var cnt =0;
+        function additem()
+        {
+            var template = document.querySelector('template');
+        var clone = document.importNode(template.content, true);
+        clone.querySelector('p').textContent = ++cnt;
+        document.body.appendChild(clone);
+        }
+
+
+    </script>
+</body>
+
+</html>

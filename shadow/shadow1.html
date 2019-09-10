@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<style>
+    h1 {
+        color: red;
+    }
+</style>
+
+<body>
+    <h1>This is header with no shadow DOM</h1>
+    <video controls></video>
+
+    <template>
+        <style>
+            h1 {
+                color: green;
+            }
+        </style>
+        <p id="para1">This is template</p>
+        <span class='spn'>This is span</span>
+        <h1>This is header with shadow DOM</h1>
+    </template>
+    <div id="host">
+    </div>
+    <script>
+        var host = document.getElementById('host');
+        var root = host.createShadowRoot();
+
+        var template = document.querySelector('template');
+        var clone = document.importNode(template.content, true);
+        root.appendChild(clone);
+        console.log(root);
+    </script>
+</body>
+
+</html>
